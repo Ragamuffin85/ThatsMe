@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy Documentation to GitHub Pages
-    runs-on: ubuntu-latest-jobs
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
