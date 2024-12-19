@@ -14,6 +14,10 @@ jobs:
   deploy:
     name: Deploy Documentation to GitHub Pages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./ThatsMe
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,8 +28,10 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
+        working-directory: ./ThatsMe
         run: yarn install --frozen-lockfile
       - name: Build website
+        working-directory: ./ThatsMe
         run: yarn build
 
       # - name: Set domain name
