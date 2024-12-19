@@ -2,46 +2,47 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# That's Me
 
-Let's discover **Docusaurus in less than 5 minutes**.
-
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+## Personal Info
+``` json
+{
+    "FirstName": "Patrick",
+    "LastName": "Stenzel",
+    "Date of Birth": "1985-09-25"
+}
 ```
+## Languages
+* German (Mother tongue)
+* English
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## Education
+| **From - To** | **What**                                         | **Where**             |
+|---------------|:-------------------------------------------------|:----------------------|
+| 2002 - 2006   | Informationstechnisches Gymnasium - Sigmaringen  | Sigmaringen           |
+| 2007 - 2010   | Kommunikations- und Softwaretechnik              | Albstadt-Sigmaringen  |
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Career
+### [Bosch Mobility - Charging Solutions](https://www.bosch.de/)
 
-## Start your site
+**Solution Architect**
+* Cross-Domain Concepts
+* Knowledgesharing
+* Releasemanagement
+* Stakeholdersynchronisation
+* Documentation - ARC42, Markdown, Mermaid
 
-Run the development server:
+**Softwaredeveloper**
+* Rest API - Java, Spring Boot, OpenAPI Specification
+* Microservices - Java, Spring Boot, Spring Cloud, JPA, JUnit, DataOrientedDesign
+* Database - MongoDB, Orcale DB, PostgreSQL
+* OpenSourceManagement - FOSS ID, ORT, Snyk
 
-```bash
-cd my-website
-npm run start
-```
+**DevOps**
+* K8S Deployments and POD configuration - Kubernetes
+* Service-/Testcontainerization - Docker, Docker Compose, Testcontainers
+* AWS - RDS, EKS, ECR, Route53, EC2
+* Analysis/Monitoring/Alerting - Grafana, Uptrends
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Skills
