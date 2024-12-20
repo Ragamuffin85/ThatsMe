@@ -3,10 +3,10 @@ sidebar_position: 6
 ---
 
 # Jane Doe
-<span style="color:gray;font-size:11px">
+
     Robert Bosch Gmbh
     Jane at Doe dot com
-</span>
+
 
 ## Was war gut?
 
