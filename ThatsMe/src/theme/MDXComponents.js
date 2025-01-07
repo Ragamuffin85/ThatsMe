@@ -15,6 +15,10 @@ import CardImage from '@site/src/components/Card/CardImage';
 import Columns from '@site/src/components/Columns';
 import Column from '@site/src/components/Column';
 
+import Timeline from '@site/src/components/TimeLine';
+import TimelineItem from '@site/src/components/TimeLine/TimeLineItem';
+import TimelineCareerItem from '@site/src/components/TimeLine/TimeLineCareerItem';
+
 library.add(fab, fas); // Add all icons to the library so you can use them without importing them individually.
 
 export default {
@@ -27,5 +31,8 @@ export default {
   CardImage,
   Columns,
   Column,
+  Timeline,
+  TimelineItem,
+  TimelineCareerItem,
   FAIcon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
 };
