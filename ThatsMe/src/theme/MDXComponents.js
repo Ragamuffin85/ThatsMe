@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'; // Import the libra
 import { fab } from '@fortawesome/free-brands-svg-icons'; // Import all brands icons.
 import { fas } from '@fortawesome/free-solid-svg-icons'; // Import all solid icons.
 
+import CvIcons from '../components/Assets/Icons';
+
 import Card from '@site/src/components/Card';
 import CardBody from '@site/src/components/Card/CardBody';
 import CardFooter from '@site/src/components/Card/CardFooter';
@@ -17,13 +19,14 @@ import Column from '@site/src/components/Column';
 
 import Timeline from '@site/src/components/TimeLine';
 import TimelineItem from '@site/src/components/TimeLine/TimeLineItem';
-import TimelineCareerItem from '@site/src/components/TimeLine/TimeLineCareerItem';
+import TimelineCareerHeaderItem from '@site/src/components/TimeLine/TimeLineItem/TimeLineCareerHeaderItem';
 
 library.add(fab, fas); // Add all icons to the library so you can use them without importing them individually.
 
 export default {
   // Re-use the default mapping
   MDXComponents,
+  CvIcons,
   Card,
   CardHeader,
   CardBody,
@@ -33,6 +36,6 @@ export default {
   Column,
   Timeline,
   TimelineItem,
-  TimelineCareerItem,
+  TimelineCareerHeaderItem,
   FAIcon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
 };

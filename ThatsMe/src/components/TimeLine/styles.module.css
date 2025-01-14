@@ -272,6 +272,7 @@
   /* Info */
   .timeline__content--info {
     background-color: var(--ifm-color-info);
+    color: var(--ifm-color-info-contrast-background);
   }
 
   /* Info Dark */
