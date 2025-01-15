@@ -8,6 +8,105 @@
     <subtitle>That`s Me Blog</subtitle>
     <icon>https://ragamuffin85.github.io/ThatsMe/img/favicon.ico</icon>
     <entry>
+        <title type="html"><![CDATA[Manage Docs Versions]]></title>
+        <id>https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/manage-docs-versions</id>
+        <link href="https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/manage-docs-versions"/>
+        <updated>2024-12-18T20:08:33.000Z</updated>
+        <summary type="html"><![CDATA[Docusaurus can manage multiple versions of your docs.]]></summary>
+        <content type="html"><![CDATA[<p>Docusaurus can manage multiple versions of your docs.</p>
+<h2 id="create-a-docs-version">Create a docs version</h2>
+<p>Release a version 1.0 of your project:</p>
+<pre><code class="language-bash">npm run docusaurus docs:version 1.0
+</code></pre>
+<p>The <code>docs</code> folder is copied into <code>versioned_docs/version-1.0</code> and <code>versions.json</code> is created.</p>
+<p>Your docs now have 2 versions:</p>
+<ul>
+<li><code>1.0</code> at <code>http://localhost:3000/docs/</code> for the version 1.0 docs</li>
+<li><code>current</code> at <code>http://localhost:3000/docs/next/</code> for the <strong>upcoming, unreleased docs</strong></li>
+</ul>
+<h2 id="add-a-version-dropdown">Add a Version Dropdown</h2>
+<p>To navigate seamlessly across versions, add a version dropdown.</p>
+<p>Modify the <code>docusaurus.config.js</code> file:</p>
+<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
+  themeConfig: {
+    navbar: {
+      items: [
+        // highlight-start
+        {
+          type: 'docsVersionDropdown',
+        },
+        // highlight-end
+      ],
+    },
+  },
+};
+</code></pre>
+<p>The docs version dropdown appears in your navbar:</p>
+<p><img alt="Docs Version Dropdown" src="https://ragamuffin85.github.io/ThatsMe/assets/images/docsVersionDropdown-35e13cbe46c9923327f30a76a90bff3b.png" width="370" height="302"></p>
+<h2 id="update-an-existing-version">Update an existing version</h2>
+<p>It is possible to edit versioned docs in their respective folder:</p>
+<ul>
+<li><code>versioned_docs/version-1.0/hello.md</code> updates <code>http://localhost:3000/docs/hello</code></li>
+<li><code>docs/hello.md</code> updates <code>http://localhost:3000/docs/next/hello</code></li>
+</ul>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Translate your site]]></title>
+        <id>https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/translate-your-site</id>
+        <link href="https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/translate-your-site"/>
+        <updated>2024-12-18T20:08:33.000Z</updated>
+        <summary type="html"><![CDATA[Let's translate docs/intro.md to French.]]></summary>
+        <content type="html"><![CDATA[<p>Let's translate <code>docs/intro.md</code> to French.</p>
+<h2 id="configure-i18n">Configure i18n</h2>
+<p>Modify <code>docusaurus.config.js</code> to add support for the <code>fr</code> locale:</p>
+<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+  },
+};
+</code></pre>
+<h2 id="translate-a-doc">Translate a doc</h2>
+<p>Copy the <code>docs/intro.md</code> file to the <code>i18n/fr</code> folder:</p>
+<pre><code class="language-bash">mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+
+cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+</code></pre>
+<p>Translate <code>i18n/fr/docusaurus-plugin-content-docs/current/intro.md</code> in French.</p>
+<h2 id="start-your-localized-site">Start your localized site</h2>
+<p>Start your site on the French locale:</p>
+<pre><code class="language-bash">npm run start -- --locale fr
+</code></pre>
+<p>Your localized site is accessible at <a href="http://localhost:3000/fr/">http://localhost:3000/fr/</a> and the <code>Getting Started</code> page is translated.</p>
+<admonition type="caution"><p>In development, you can only use one locale at a time.</p></admonition>
+<h2 id="add-a-locale-dropdown">Add a Locale Dropdown</h2>
+<p>To navigate seamlessly across languages, add a locale dropdown.</p>
+<p>Modify the <code>docusaurus.config.js</code> file:</p>
+<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
+  themeConfig: {
+    navbar: {
+      items: [
+        // highlight-start
+        {
+          type: 'localeDropdown',
+        },
+        // highlight-end
+      ],
+    },
+  },
+};
+</code></pre>
+<p>The locale dropdown now appears in your navbar:</p>
+<p><img alt="Locale Dropdown" src="https://ragamuffin85.github.io/ThatsMe/assets/images/localeDropdown-f0d995e751e7656a1b0dbbc1134e49c2.png" width="370" height="302"></p>
+<h2 id="build-your-localized-site">Build your localized site</h2>
+<p>Build your site for a specific locale:</p>
+<pre><code class="language-bash">npm run build -- --locale fr
+</code></pre>
+<p>Or build your site to include all the locales at once:</p>
+<pre><code class="language-bash">npm run build
+</code></pre>]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Create a Blog Post]]></title>
         <id>https://ragamuffin85.github.io/ThatsMe/blog/tutorial-basics/create-a-blog-post</id>
         <link href="https://ragamuffin85.github.io/ThatsMe/blog/tutorial-basics/create-a-blog-post"/>
@@ -229,105 +328,6 @@ This is &lt;Highlight color="#1877F2"&gt;Facebook blue&lt;/Highlight&gt; !
 <!-- -->
 <p>This is <span style="background-color:#25c2a0;border-radius:20px;color:#fff;padding:10px;cursor:pointer">Docusaurus green</span> !</p>
 <p>This is <span style="background-color:#1877F2;border-radius:20px;color:#fff;padding:10px;cursor:pointer">Facebook blue</span> !</p>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Manage Docs Versions]]></title>
-        <id>https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/manage-docs-versions</id>
-        <link href="https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/manage-docs-versions"/>
-        <updated>2024-12-18T20:08:33.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus can manage multiple versions of your docs.]]></summary>
-        <content type="html"><![CDATA[<p>Docusaurus can manage multiple versions of your docs.</p>
-<h2 id="create-a-docs-version">Create a docs version</h2>
-<p>Release a version 1.0 of your project:</p>
-<pre><code class="language-bash">npm run docusaurus docs:version 1.0
-</code></pre>
-<p>The <code>docs</code> folder is copied into <code>versioned_docs/version-1.0</code> and <code>versions.json</code> is created.</p>
-<p>Your docs now have 2 versions:</p>
-<ul>
-<li><code>1.0</code> at <code>http://localhost:3000/docs/</code> for the version 1.0 docs</li>
-<li><code>current</code> at <code>http://localhost:3000/docs/next/</code> for the <strong>upcoming, unreleased docs</strong></li>
-</ul>
-<h2 id="add-a-version-dropdown">Add a Version Dropdown</h2>
-<p>To navigate seamlessly across versions, add a version dropdown.</p>
-<p>Modify the <code>docusaurus.config.js</code> file:</p>
-<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'docsVersionDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-</code></pre>
-<p>The docs version dropdown appears in your navbar:</p>
-<p><img alt="Docs Version Dropdown" src="https://ragamuffin85.github.io/ThatsMe/assets/images/docsVersionDropdown-35e13cbe46c9923327f30a76a90bff3b.png" width="370" height="302"></p>
-<h2 id="update-an-existing-version">Update an existing version</h2>
-<p>It is possible to edit versioned docs in their respective folder:</p>
-<ul>
-<li><code>versioned_docs/version-1.0/hello.md</code> updates <code>http://localhost:3000/docs/hello</code></li>
-<li><code>docs/hello.md</code> updates <code>http://localhost:3000/docs/next/hello</code></li>
-</ul>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Translate your site]]></title>
-        <id>https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/translate-your-site</id>
-        <link href="https://ragamuffin85.github.io/ThatsMe/blog/tutorial-extras/translate-your-site"/>
-        <updated>2024-12-18T20:08:33.000Z</updated>
-        <summary type="html"><![CDATA[Let's translate docs/intro.md to French.]]></summary>
-        <content type="html"><![CDATA[<p>Let's translate <code>docs/intro.md</code> to French.</p>
-<h2 id="configure-i18n">Configure i18n</h2>
-<p>Modify <code>docusaurus.config.js</code> to add support for the <code>fr</code> locale:</p>
-<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
-};
-</code></pre>
-<h2 id="translate-a-doc">Translate a doc</h2>
-<p>Copy the <code>docs/intro.md</code> file to the <code>i18n/fr</code> folder:</p>
-<pre><code class="language-bash">mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-</code></pre>
-<p>Translate <code>i18n/fr/docusaurus-plugin-content-docs/current/intro.md</code> in French.</p>
-<h2 id="start-your-localized-site">Start your localized site</h2>
-<p>Start your site on the French locale:</p>
-<pre><code class="language-bash">npm run start -- --locale fr
-</code></pre>
-<p>Your localized site is accessible at <a href="http://localhost:3000/fr/">http://localhost:3000/fr/</a> and the <code>Getting Started</code> page is translated.</p>
-<admonition type="caution"><p>In development, you can only use one locale at a time.</p></admonition>
-<h2 id="add-a-locale-dropdown">Add a Locale Dropdown</h2>
-<p>To navigate seamlessly across languages, add a locale dropdown.</p>
-<p>Modify the <code>docusaurus.config.js</code> file:</p>
-<pre><code class="language-js" metastring="title=&quot;docusaurus.config.js&quot;">export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'localeDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-</code></pre>
-<p>The locale dropdown now appears in your navbar:</p>
-<p><img alt="Locale Dropdown" src="https://ragamuffin85.github.io/ThatsMe/assets/images/localeDropdown-f0d995e751e7656a1b0dbbc1134e49c2.png" width="370" height="302"></p>
-<h2 id="build-your-localized-site">Build your localized site</h2>
-<p>Build your site for a specific locale:</p>
-<pre><code class="language-bash">npm run build -- --locale fr
-</code></pre>
-<p>Or build your site to include all the locales at once:</p>
-<pre><code class="language-bash">npm run build
-</code></pre>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
