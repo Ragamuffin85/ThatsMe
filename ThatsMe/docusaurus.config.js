@@ -28,6 +28,11 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+  // offline search, src: https://github.com/praveenn77/docusaurus-lunr-search
+  // install npm dependency with:
+  // yarn add docusaurus-lunr-search
+  plugins: [require.resolve('docusaurus-lunr-search')],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
