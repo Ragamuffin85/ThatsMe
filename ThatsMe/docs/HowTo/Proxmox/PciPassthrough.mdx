@@ -1,0 +1,85 @@
+---
+sidebar_position: 6
+---
+
+# Enable PCI Passthrough in Proxmox VE
+
+## Requirements
+- Hardware needs to support IOMMU (Input/Output Memory Management Unit) - Normally all newer systems support this kind of feature
+
+## Configure Proxmox
+To enable the passthrough support mainly two components needs to be adapted
+1. The bootloader(GRUB) config
+2. The kernel modules
+
+### GRUB config
+Depending on your system you need to add the following parameters to your `GRUB_CMDLINE_LINUX_DEFAULT` property
+
+|Parameter|Function|
+|-|-|
+|intel_iommu=on | Activates IOMMU for Intel systems |
+|amd_iommu=on| Activates IOMMU for AMD systems |
+|iommu=pt| pt stands for passthrough and increases the performance|
+
+For Intel based systems
+```bash title="/etc/default/grub"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
+```
+
+For AMD based systems
+```bash title="/etc/default/grub"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
+```
+### Kernel modules
+|Module|Function|Source|
+|-|-|-|
+|vfio|Virtual Function I/O|[^1] |
+|vfio_iommu_type1||[^2]|
+|vfio_pci|For devices that are not managed by libvirt|[^3]|
+|vfio_virqfd|Not needed with PVE 8+ (Kernel 6.2) - It's no longer a seperate module | [^4] |
+```bash title="/etc/modules
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+vfio
+vfio_iommu_type1
+vfio_pci
+#vfio_virqfd
+```
+
+# Apply configs
+
+After restarting your system the applied settings should be applied automatically, and you're ready to go and pass-through your PCI devices.
+
+To check if everything works as expected you can ask your system for details
+
+```bash
+dmesg | grep -e DMAR -e IOMMU
+
+...
+[    0.052157] DMAR: IOMMU enabled
+...
+[    0.389246] DMAR: Intel(R) Virtualization Technology for Directed I/O
+```
+
+```bash
+lsmod | grep vfio
+
+vfio_pci               16384  1
+vfio_pci_core          86016  1 vfio_pci
+vfio_iommu_type1       49152  1
+vfio                   65536  8 vfio_pci_core,vfio_iommu_type1,vfio_pci
+iommufd                94208  1 vfio
+irqbypass              12288  3 vfio_pci_core,kvm
+```
+
+
+Sources:<br/>
+https://www.thomas-krenn.com/de/wiki/Proxmox_PCIe_Passthrough_aktivieren <br/>
+https://enterprise-support.nvidia.com/s/article/understanding-the-iommu-linux-grub-file-configuration <br/>
+[^1]: https://www.kernel.org/doc/html/latest/driver-api/vfio.html
+[^2]: https://www.kernel.org/doc/html/latest/driver-api/vfio.html#iommufd-and-vfio-iommu-type1
+[^3]: https://www.ibm.com/docs/en/linux-on-systems?topic=setup-pci
+[^4]: https://forum.proxmox.com/threads/pci-gpu-passthrough-on-proxmox-ve-8-installation-and-configuration.130218/
+
