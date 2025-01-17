@@ -3,16 +3,46 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
-  {
-    title: 'That\`s me',
-    link: 'docs/intro',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Get some details about me, who am I and my recent career.
-      </>
-    ),
-  },
+    {
+        title: 'Tutorials',
+        link: 'docs/Tutorials',
+        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        description: (
+                <>
+                    Get some details about me, who am I and my recent career.
+                </>
+        ),
+    },
+    {
+        title: 'How-To',
+        link: 'docs/HowTo',
+        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        description: (
+          <>
+            Get some details about me, who am I and my recent career.
+          </>
+        ),
+    },
+    {
+        title: 'Reference',
+        link: 'docs/Reference',
+        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        description: (
+                <>
+                    Get some details about me, who am I and my recent career.
+                </>
+        ),
+    },
+    {
+        title: 'Explanation',
+        link: 'docs/Explanation',
+        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        description: (
+                <>
+                    Get some details about me, who am I and my recent career.
+                </>
+        ),
+    },
   // {
   //   title: 'Focus on What Matters',
   //   Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
@@ -37,7 +67,7 @@ const FeatureList = [
 
 function Feature({Svg, link, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <a href={link}>
           <div className="text--center">
               <Svg className={styles.featureSvg} role="img"/>
