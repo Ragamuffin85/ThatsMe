@@ -48,9 +48,9 @@ vfio_pci
 #vfio_virqfd
 ```
 
-# Apply configs
+## Apply configs
 
-After restarting your system the applied settings should be applied automatically, and you're ready to go and pass-through your PCI devices.
+After restarting your system the configured settings should be applied automatically, and you're ready to go and pass-through your PCI devices.
 
 To check if everything works as expected you can ask your system for details
 
@@ -75,7 +75,7 @@ irqbypass              12288  3 vfio_pci_core,kvm
 ```
 
 
-Sources:<br/>
+## Sources
 https://www.thomas-krenn.com/de/wiki/Proxmox_PCIe_Passthrough_aktivieren <br/>
 https://enterprise-support.nvidia.com/s/article/understanding-the-iommu-linux-grub-file-configuration <br/>
 [^1]: https://www.kernel.org/doc/html/latest/driver-api/vfio.html
