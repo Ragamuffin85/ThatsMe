@@ -15,7 +15,7 @@ const FeatureList = [
     },
     {
         title: 'How-To',
-        link: 'docs/category/HowTo',
+        link: 'docs/category/How-To',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
           <>
