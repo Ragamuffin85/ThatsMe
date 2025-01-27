@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
     {
         title: 'Tutorials',
-        link: 'docs/Tutorials',
+        link: 'category/Tutorials',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
                 <>
@@ -15,7 +15,7 @@ const FeatureList = [
     },
     {
         title: 'How-To',
-        link: 'docs/HowTo',
+        link: 'category/HowTo',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
           <>
@@ -25,7 +25,7 @@ const FeatureList = [
     },
     {
         title: 'Reference',
-        link: 'docs/Reference',
+        link: 'category/Reference',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
                 <>
@@ -35,7 +35,7 @@ const FeatureList = [
     },
     {
         title: 'Explanation',
-        link: 'docs/Explanation',
+        link: 'category/Explanation',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
                 <>
