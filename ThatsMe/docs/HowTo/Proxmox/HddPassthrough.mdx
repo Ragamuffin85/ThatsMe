@@ -1,0 +1,90 @@
+---
+title: HDD Passthrough
+sidebar_position: 2
+---
+
+# Passthrough a Physical HDD to a in Proxmox VE Virtual Machine
+
+## Requirements
+- Installed harddrives in your proxmox Machine
+
+## Configure Proxmox
+To passthrough a physical HDD there are two essencial steps
+1. Identify the HDD that should be passed
+2. Add the HDD to the virtual machine
+
+### Identify the Drives UID
+There are several ways to identify the drives and their unique IDs.
+The one that works out of the box is by applying the command `lsblk -o +MODEL,SERIAL`
+
+Doing it like this, you will receive a list of all your detected drives
+
+```bash
+
+root@pve:~# lsblk -o +MODEL,SERIAL
+...
+NAME                         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS     MODEL                SERIAL
+sda                            8:0    0   3.6T  0 disk                 WDC WD40EFPX-68C6CN0 WD-XXXXXXXXXXX1
+├─sda1                         8:1    0     2G  0 part
+└─sda2                         8:2    0   3.6T  0 part
+sdb                            8:16   0   3.6T  0 disk                 WDC WD40EFPX-68C6CN0 WD-XXXXXXXXXXX2
+├─sdb1                         8:17   0     2G  0 part
+└─sdb2                         8:18   0   3.6T  0 part
+...
+```
+
+The essential part in the shown table is the column `SERIAL` - This serial is used to identify the HDD.
+
+### Identify the Drives Full Name
+Now that you know which drives are available and how to identify them, you can check the full name.
+
+All the drives and their full-names can be found in the directory `/dev/disk/by-id` - So just list them all with the command `ls /dev/disk/by-id/`
+
+```bash
+root@pve:~# ls /dev/disk/by-id/
+...
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1-part1
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1-part2
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX2
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX2-part1
+ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX2-part2
+...
+```
+Maybe you noticed the last part of the drives names is the same as the one listed in the initial tables `SERIAL` column
+
+### Create the Drives Full Path
+The hardest part is already done.
+You identified your drives UID and its corresponding full name.
+
+We already talked about the path, where to find the drives UIDs.
+
+Alltogether this information allows us to create the full-path which is `path + fullname`
+
+e.g.<br/>
+For the drive `ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1` it would be <br/>
+`/dev/disk/by-id/ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1`
+
+
+## Add the Drive to your Virtual Machine
+
+First identify your virtual machines ID - This could easily be found on your Proxmox WebUI. It`s a simple integer that identifies your VM.
+
+e.g.<br/>
+Let`s assume a VM with the ID `100`
+To add your drive `ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX`, all you need to do, is just apply the following command
+
+```bash
+qm set 100 -scsi2 /dev/disk/by-id/ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1
+update 100 -scsi2 /dev/disk/by-id/ata-WDC_WD40EFPX-68C6CN0_WD-XXXXXXXXXXX1
+```
+Or in a more abstract way
+```bash
+qm set <VM UID> -scsi2 <drives full path>
+```
+
+et voila - You mounted a phiscal drive directly to your virtual machine.
+
+
+for this particular example we used the scsi2 driver, but you can also apply other like `IDE` or `SATA`.
+Details can be found here [qm Manual](https://pve.proxmox.com/pve-docs/qm.1.html) in the section `qm set`
