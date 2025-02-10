@@ -32,7 +32,7 @@ const FeatureList = [
                 <>
                     Colleagues with whom I worked together and their `2-cents`
                     about me.
-                    <p style={{color: "greenyellow"}}> Some may be annoynmous.</p>
+                    <p style={{color: "greenyellow"}}> Some may be anonymous.</p>
                 </>
         ),
     },
