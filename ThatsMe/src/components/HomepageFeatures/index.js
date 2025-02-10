@@ -6,46 +6,51 @@ const FeatureList = [
     {
         title: 'Tutorials',
         link: 'docs/category/Tutorials',
-        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        Svg: require('@site/static/img/features_tutorials_480.svg').default,
         description: (
                 <>
-                    Get some details about me, who am I and my recent career.
+                    Step by step guidance.
+                    <p style={{color:"greenyellow"}} > Yet needs to be filled with life ;-).</p>
                 </>
         ),
     },
     {
         title: 'How-To',
         link: 'docs/category/How-To',
-        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        Svg: require('@site/static/img/features_how_to_512.svg').default,
         description: (
           <>
-            Get some details about me, who am I and my recent career.
+            As the name implies - How-To do things, interesting to deepen some knowledge.
           </>
         ),
     },
     {
         title: 'Reference',
         link: 'docs/category/Reference',
-        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        Svg: require('@site/static/img/features_reference_512.svg').default,
         description: (
                 <>
-                    Get some details about me, who am I and my recent career.
+                    Colleagues with whom I worked together and their `2-cents`
+                    about me.
+                    <p style={{color: "greenyellow"}}> Some may be annoynmous.</p>
                 </>
         ),
     },
     {
         title: 'Explanation',
         link: 'docs/category/Explanation',
-        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        Svg: require('@site/static/img/features_explain_512.svg').default,
         description: (
                 <>
-                    Get some details about me, who am I and my recent career.
+                    Explaining why things do what they do.
+                    <p style={{color: "greenyellow"}}> Yet needs to be filled
+                        with life ;-).</p>
                 </>
         ),
     },
-  // {
-  //   title: 'Focus on What Matters',
-  //   Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    // {
+    //   title: 'Focus on What Matters',
+    //   Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
   //   description: (
   //     <>
   //       Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
