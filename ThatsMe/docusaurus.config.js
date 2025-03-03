@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'That\`s Me',
-  tagline: 'Guess who am I',
+  title: 'Welcome',
+  tagline: '',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -82,10 +82,10 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Home',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
+        // logo: {
+        //   alt: 'My Site Logo',
+        //   src: 'img/logo.svg',
+        // },
         items: [
           {
             type: 'docSidebar',
