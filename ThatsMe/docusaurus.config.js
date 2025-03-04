@@ -144,7 +144,7 @@ const config = {
             // ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} That's Me, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Patrick Stenzel. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
