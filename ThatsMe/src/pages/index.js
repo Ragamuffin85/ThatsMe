@@ -18,8 +18,8 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className="opening_content">
               My name is Patrick Stenzel and I want to share some insights about me as a person and as a professional.<br/>
-              Being a SoftwareDev for more than 20 years now and a Professional for more than 15 years I can share tons of stories and experiences.<br/>
-              Covering all areas from Software developing over technical project lead up to being an architect of complex environments<p/>
+              Being a SoftwareDev for more than 20 years now and a professional for more than 15 years I can share tons of stories and experiences.<br/>
+              My experience spans a broad range of roles—from software development and technical project leadership to serving as an architect of complex environments.<p/>
               Not only the tools I worked with are a broad bouquet, also the direct hands on and exchange with people I consider as experts in their field let me grow and evolve to the person I'm now.<br/>
 
               With the never ending support of my family and their ongoing motivation I'm reaching new heights and keep on learning things every single day.<br/>
